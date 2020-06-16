@@ -37,3 +37,4 @@ cd zap-cli
 python setup.py install
 pip install --upgrade zapcli
 cd ../
+pip install cx_oracle
