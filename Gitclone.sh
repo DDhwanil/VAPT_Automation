@@ -14,4 +14,3 @@ git clone https://github.com/CiscoCXSecurity/enum4linux.git
 git clone https://github.com/ShawnDEvans/smbmap.git
 git clone https://github.com/trustedsec/ridenum.git
 git clone https://github.com/Grunny/zap-cli.git
-cp ./../update-git-repos.sh update-git-repos.sh
