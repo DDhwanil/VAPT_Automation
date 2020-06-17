@@ -70,7 +70,9 @@ if sys.argv[1] in "ip":
     , 'python3 /git/smbmap/smbmap.py -H '+sys.argv[2]
     , 'python3 /git/smbmap/smbmap.py -u root -p toor -d workgroup -H '+sys.argv[2]
     , 'python3 /git/smbmap/smbmap.py -u administrator -p password -d workgroup -H '+sys.argv[2]
-    , 'python3 /git/smbmap/smbmap.py -u admin -p admin -d workgroup -H '+sys.argv[2]]
+    , 'python3 /git/smbmap/smbmap.py -u admin -p admin -d workgroup -H '+sys.argv[2]
+    , 'nmap -T2 -vvv -sV -sC -p- --script all -oA '+sys.argv[2]+fil+' '+sys.argv[2]
+    , 'masscan -p1-65535 '+sys.argv[2]' --banners --rate 100']
 if sys.argv[1] in "url":
     print('scanning url')
     cmds = ['nikto --url '+sys.argv[2]
@@ -79,6 +81,7 @@ if sys.argv[1] in "url":
     ,'wpscan.rb --url https://'+sys.argv[2]+' --enumerate vp'
     ,'wpscan.rb --url http://'+sys.argv[2]+' --enumerate vt'
     ,'wpscan.rb --url https://'+sys.argv[2]+' --enumerate vt'
+    , './git/gobuster/gobuster dir -u '+sys.argv[2]+' -k -w ./git/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt'
     , 'dig '+sys.argv[2]
     , 'curl -i -X OPTIONS http://'+sys.argv[2], 'curl -v -X http://'+sys.argv[2]
     , 'zap-cli -v --zap-path /usr/share/zaproxy/zap.ss quick-scan --spider -r -s all http://'+sys.argv[2]
